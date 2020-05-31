@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <title>Search synonyms from text</title>
 </head>
-<body>
 {% load static %}
 <link rel="stylesheet" type="text/css" href="{% static 'main_webform/style.css' %}">
 
@@ -15,15 +14,12 @@
 <p>Please, upload file in txt, doc formats</p>
 
 {% block content %}
-  <form method="post" enctype="multipart/form-data">
+  <form action = "" method="post" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form.as_p }}
     <button type="submit">Upload</button>
   </form>
 
-<li>
-    <a href="{% url 'main_webform:text' %}">Results</a>
-</li>
 {% endblock %}
 
 </body>

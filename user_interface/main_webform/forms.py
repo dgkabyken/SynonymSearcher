@@ -1,7 +1,8 @@
-from django import forms
+from django.forms import ModelForm, TextInput
 from .models import Document
 
-class DocumentForm(forms.ModelForm):
+class DocumentForm(ModelForm):
     class Meta:
         model = Document
-        fields = ('text', 'document', 'word_to_search',)
+        fields = ('text', 'document', 'word_to_search')
+        #widgets = {'text': TextInput(attrs={'placeholder': 'Введите текст'})}
