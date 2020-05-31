@@ -9,11 +9,10 @@
 {% load static %}
 <link rel="stylesheet" type="text/css" href="{% static 'main_webform/style.css' %}">
 {% load filters %}
-{% highlight file_contents "File" %}
 
-<p> Searching for word <b>{{ word }}</b> </p>
+<p> Поиск синонимов слова <b>{{ word }}</b> </p>
 
-<pre>{{  subject }}</pre>
+<p>{{  result }}</p>
 
 
 </body>

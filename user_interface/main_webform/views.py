@@ -1,9 +1,8 @@
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
-from django.urls import reverse
 from .forms import DocumentForm
-from . import functions
-
+from .functions import read_file
+from .functions import get_syn_pos
 
 def model_form_upload(request):
     if request.method == 'POST':
@@ -14,13 +13,14 @@ def model_form_upload(request):
             word = form.cleaned_data['word_to_search']
 
             if subject == '':
-                file = functions.read_file(form.cleaned_data['document'])
-
-                return render(request, 'main_webform/text.html', {'subject': file,
+                file = read_file(form.cleaned_data['document'])
+                result = get_syn_pos(word, file)
+                return render(request, 'main_webform/text.html', {'result': result,
                                                                   'word': word
                                                                   })
             else:
-                return render(request, 'main_webform/text.html', {'subject': subject,
+                result = get_syn_pos(word, subject)
+                return render(request, 'main_webform/text.html', {'result': result,
                                                                   'word': word
                                                                   })
             #return HttpResponseRedirect(reverse('main_webform:model_form_upload'))
