@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Поиск синонимов онлайн</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <style type="text/css">
+        BODY {margin: 0;}
+        #content {
+            top: 82px;
+            left: 170px;
+        }
+    </style>
+</head>
+<body>
+    <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+        <h3 class="my-0 mr-md-auto font-weight-normal">Dobermans</h3>
+        <nav class="my-2 my-md-0 mr-md-3">
+            <a class="p-2 text-dark" href="#">Главная</a>
+            <a class="p-2 text-dark" href="#">Информация</a>
+        </nav>
+        <a class="btn btn-outline-primary" href="#">Документация</a>
+    </div>
+    <div id="content">
+        <h1>Поиск синонимов онлайн</h1>
+        <form action="" method="post">
+            {% csrf_token %}
+            <label for="text">Введите текст</label>
+            <!--<p><b>Введите текст:</b></p>-->
+            {{ form.text }}
+            <!--<p><b>или прикрепите файл:</b></p>-->
+            <!--<p><input type="file" name="f"></p>-->
+            <!--<label for="word">Введите слово</label>-->
+            <!--<input type="text" id="word" name="word" size="30"><br>-->
+            <p><input type="submit" id="text" value="Поиск"></p>
+        </form>
+        <h2>Результат</h2>
+        <form action="" method="post">
+            <p><textarea name="text" cols="190" rows="10">{{result}}</textarea></p>
+        </form>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Search synonyms from text</title>
+</head>
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'main_webform/style.css' %}">
+
+<header>
+    <h1>Поиск синонимов в тексте</h1>
+  </header>
+
+<p>Please, upload file in txt, doc formats</p>
+
+{% block content %}
+  <form action = "" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Upload</button>
+  </form>
+
+{% endblock %}
+
+</body>
+</html>
