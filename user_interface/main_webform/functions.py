@@ -7,7 +7,7 @@ from pymystem3 import Mystem
 from django.utils.safestring import mark_safe
 
 
-conn = psycopg2.connect(host='35.228.159.171', database='postgres', user='postgres', password='zerde9mkr')
+conn = psycopg2.connect(host='35.228.159.171', database='postgres', user='postgres', password=*****)
 cur = conn.cursor()
 
 
