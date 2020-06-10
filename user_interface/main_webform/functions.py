@@ -23,7 +23,7 @@ def get_syn(word):
     if cur.rowcount == 0:
         return []
     id_ = cur.fetchone()[0]
-    cur.execute("SELECT syn FROM synonym where id = '{}';".format(id_))
+    cur.execute("SELECT syn FROM synonym_update where id = '{}';".format(id_))
     rows = cur.fetchall()
     synonyms = [syn[0] for syn in rows]
     return synonyms
@@ -60,7 +60,7 @@ def get_syn_pos(word, text):
 
     for i, word in enumerate(clean_inf_text):
         if word in synonyms:
-            result += '<b>' + list_text[i] + '</b>' + ' '
+            result += '<mark>' + list_text[i] + '</mark>' + ' '
         else:
             result += list_text[i] + ' '
     return mark_safe(result)

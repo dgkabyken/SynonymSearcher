@@ -1,8 +1,10 @@
-from django.forms import ModelForm, TextInput
+from django.forms import ModelForm, TextInput, Textarea, FileInput
 from .models import Document
 
 class DocumentForm(ModelForm):
     class Meta:
         model = Document
-        fields = ('text', 'document', 'word_to_search')
-        #widgets = {'text': TextInput(attrs={'placeholder': 'Введите текст'})}
+        fields = ('document', 'text', 'word_to_search')
+        widgets = {'text': Textarea(attrs={'rows': 10, 'cols': 200, 'placeholder': 'Введите текст'
+                                           }),
+                   'document': FileInput(attrs={})}
