@@ -3,9 +3,16 @@ color: green;
 }
 
 header h1 {
-color: green;
+color: black;
 }
 
+
 body {
-    background: white url("images/1.jpg") no-repeat;
+  background:  url("images/background.png") no-repeat;
+  font-family: Georgia, "Times New Roman",
+          Times, serif;
+  margin: 2%; /* Убираем отступы */
+  padding: 10px; /* Поля вокруг текста */
+
+
 }

@@ -11,13 +11,12 @@
     <h1>Поиск синонимов в тексте</h1>
   </header>
 
-<p>Please, upload file in txt, doc formats</p>
-
+<body>
 {% block content %}
   <form action = "" method="post" enctype="multipart/form-data">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit">Upload</button>
+    <button type="submit">Поиск</button>
   </form>
 
 {% endblock %}

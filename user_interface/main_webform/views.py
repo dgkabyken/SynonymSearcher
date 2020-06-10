@@ -3,6 +3,7 @@ from django.shortcuts import render
 from .forms import DocumentForm
 from .functions import read_file
 from .functions import get_syn_pos
+from django.urls import reverse
 
 def model_form_upload(request):
     if request.method == 'POST':
@@ -13,17 +14,21 @@ def model_form_upload(request):
             word = form.cleaned_data['word_to_search']
 
             if subject == '':
-                file = read_file(form.cleaned_data['document'])
-                result = get_syn_pos(word, file)
-                return render(request, 'main_webform/text.html', {'result': result,
-                                                                  'word': word
-                                                                  })
+                try:
+                    file = read_file(form.cleaned_data['document'])
+                    result = get_syn_pos(word, file)
+                    return render(request, 'main_webform/text.html', {'result': result,
+                                                                      'word': word
+                                                                      })
+                except:
+                    return HttpResponseRedirect(reverse('main_webform:model_form_upload'))
+
             else:
                 result = get_syn_pos(word, subject)
                 return render(request, 'main_webform/text.html', {'result': result,
                                                                   'word': word
                                                                   })
-            #return HttpResponseRedirect(reverse('main_webform:model_form_upload'))
+
 
     else:
         form = DocumentForm()
@@ -41,7 +46,6 @@ def test_model_form(request):
     else:
         form = DocumentForm()
     text = form
-    #text = 'Привет Молдир. Че не степ?'
     context = {'form': form,
                'result': text}
 

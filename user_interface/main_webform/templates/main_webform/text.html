@@ -5,12 +5,23 @@
     <title>Text</title>
 
 </head>
+
+
+<style>
+    p {
+  padding: 30px; /* Поля вокруг текста */
+  border: 3px solid black;
+   }
+</style>
+
 <body>
 {% load static %}
 <link rel="stylesheet" type="text/css" href="{% static 'main_webform/style.css' %}">
-{% load filters %}
 
-<p> Поиск синонимов слова <b>{{ word }}</b> </p>
+<header>
+    <h1> Поиск синонимов слова "{{ word }}" </h1>
+  </header>
+
 
 <p>{{  result }}</p>
 
